@@ -1,0 +1,58 @@
+import express from 'express'
+import { reviewValidation } from '~/validations/reviewValidation'
+import { reviewController } from '~/controllers/reviewController'
+import { authMiddleware } from '~/middlewares/authMiddleware'
+import { multerUploadMiddleware } from '~/middlewares/multerUploadMiddleware'
+
+const Router = express.Router()
+
+// Public route - Lấy reviews cho homepage (không cần auth)
+Router.route('/public')
+  .get(reviewController.getPublicReviews)
+
+// Lấy reviews theo productId (public)
+Router.route('/product/:productId')
+  .get(reviewController.getReviewsByProductId)
+
+// User routes - Sử dụng .any() để parse tất cả fields và files
+Router.route('/')
+  .post(
+    authMiddleware.isAuthorized,
+    multerUploadMiddleware.uploadMulter.any(),
+    reviewValidation.createNew,
+    reviewController.createNew
+  )
+
+// Lấy reviews theo orderId (user cần đăng nhập)
+Router.route('/order/:orderId')
+  .get(
+    authMiddleware.isAuthorized,
+    reviewController.getReviewsByOrderId
+  )
+
+// Admin routes
+Router.route('/admin')
+  .get(
+    authMiddleware.isAuthorized,
+    authMiddleware.isAuthorizedAdmin,
+    reviewController.getReviews
+  )
+
+Router.route('/admin/:id')
+  .get(
+    authMiddleware.isAuthorized,
+    authMiddleware.isAuthorizedAdmin,
+    reviewController.getDetails
+  )
+  .put(
+    authMiddleware.isAuthorized,
+    authMiddleware.isAuthorizedAdmin,
+    reviewController.update
+  )
+  .delete(
+    authMiddleware.isAuthorized,
+    authMiddleware.isAuthorizedAdmin,
+    reviewController.deleteItem
+  )
+
+export const reviewRoute = Router
