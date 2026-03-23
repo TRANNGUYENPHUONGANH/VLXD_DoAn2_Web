@@ -84,7 +84,7 @@ export default function CategoriesGrid({ className = '' }) {
           {displayCategories.map((category, index) => (
             <Link
               key={category._id || index}
-              to={`/shop?category=${category.slug || category._id}`}
+              to={`/products?category=${category._id}`}
               className="group relative aspect-square rounded-2xl overflow-hidden"
             >
               {/* Background Image */}

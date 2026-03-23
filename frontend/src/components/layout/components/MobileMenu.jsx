@@ -12,7 +12,7 @@ import Logo from './Logo'
 
 const navItems = [
   { label: 'Trang chủ', path: '/', icon: Home },
-  { label: 'Cửa hàng', path: '/shop', icon: Store },
+  { label: 'Cửa hàng', path: '/products', icon: Store },
   { label: 'Danh mục', path: '/categories', icon: Folder },
   { label: 'Tin tức', path: '/blog', icon: FileText },
   { label: 'Liên hệ', path: '/contact', icon: MessageCircle },

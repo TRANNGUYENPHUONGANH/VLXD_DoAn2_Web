@@ -14,21 +14,21 @@ const DEFAULT_BANNERS = [
     title: 'Vật liệu xây dựng chất lượng cao',
     slug: 'Cung cấp vật liệu xây dựng uy tín, giá tốt nhất thị trường',
     image: banner1,
-    link: '/shop'
+    link: '/products'
   },
   {
     _id: '2',
     title: 'Sắt thép xây dựng',
     slug: 'Đảm bảo chất lượng, nguồn gốc rõ ràng',
     image: banner2,
-    link: '/shop'
+    link: '/products'
   },
   {
     _id: '3',
     title: 'Cát, đá, xi măng',
     slug: 'Vật liệu cơ bản cho mọi công trình',
     image: banner3,
-    link: '/shop'
+    link: '/products'
   }
 ]
 
@@ -99,13 +99,13 @@ export default function HeroSection({ className = '' }) {
                 </p>
                 <div className="flex gap-4">
                   <Link
-                    to={currentBanner.link || '/shop'}
+                    to={currentBanner.link || '/products'}
                     className="inline-block px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors"
                   >
                     Mua ngay
                   </Link>
                   <Link
-                    to="/shop"
+                    to="/products"
                     className="inline-block px-8 py-3 bg-white/20 text-white rounded-full font-medium hover:bg-white/30 transition-colors backdrop-blur-sm"
                   >
                     Xem cửa hàng

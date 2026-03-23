@@ -442,7 +442,7 @@ export default function Checkout() {
             <h2 className="text-2xl font-semibold text-gray-900 mb-2">Giỏ hàng trống</h2>
             <p className="text-gray-500 mb-8">Hãy thêm sản phẩm vào giỏ hàng của bạn</p>
             <Link
-              to="/shop"
+              to="/products"
               className="inline-flex items-center gap-2 px-8 py-3 bg-blue-500 text-white rounded-xl font-medium hover:bg-blue-600 transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
@@ -509,7 +509,7 @@ export default function Checkout() {
                 Về trang chủ
               </Link>
               <Link
-                to="/shop"
+                to="/products"
                 className="flex-1 py-3 bg-blue-500 text-white rounded-xl font-medium hover:bg-blue-600 transition-colors"
               >
                 Tiếp tục mua sắm

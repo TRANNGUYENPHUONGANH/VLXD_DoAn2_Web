@@ -450,7 +450,7 @@ export default function ProductDetail() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-semibold text-gray-900 mb-2">Không tìm thấy sản phẩm</h2>
-          <Link to="/shop" className="text-blue-500 hover:text-blue-600">
+          <Link to="/products" className="text-blue-500 hover:text-blue-600">
             Quay lại cửa hàng
           </Link>
         </div>
@@ -469,11 +469,11 @@ export default function ProductDetail() {
           <div className="flex items-center gap-2 text-sm text-gray-500">
             <Link to="/" className="hover:text-blue-500">Trang chủ</Link>
             <span>/</span>
-            <Link to="/shop" className="hover:text-blue-500">Cửa hàng</Link>
+            <Link to="/products" className="hover:text-blue-500">Cửa hàng</Link>
             <span>/</span>
             {product.category?.name && (
               <>
-                <Link to={`/shop?category=${product.categoryId}`} className="hover:text-blue-500">
+                <Link to={`/products?category=${product.categoryId}`} className="hover:text-blue-500">
                   {product.category.name}
                 </Link>
                 <span>/</span>

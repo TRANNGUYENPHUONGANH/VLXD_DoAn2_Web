@@ -4,64 +4,6 @@ import { ArrowLeft, ArrowRight, Flower2 } from "lucide-react";
 import { getCategoriesAPI } from "~/apis";
 import { motion } from "framer-motion";
 
-const DEFAULT_CATEGORIES = [
-  {
-    _id: "1",
-    name: "Hoa cưới",
-    image: "https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=600",
-    slug: "hoa-cuoi",
-    description: "Những bó hoa cưới sang trọng",
-  },
-  {
-    _id: "2",
-    name: "Hoa sinh nhật",
-    image: "https://images.unsplash.com/photo-1518882605630-8eb582dd4e5d?w=600",
-    slug: "hoa-sinh-nhat",
-    description: "Tặng người thương nhân dịp đặc biệt",
-  },
-  {
-    _id: "3",
-    name: "Hoa khai trương",
-    image: "https://images.unsplash.com/photo-1566937169390-7be4c63b8a0e?w=600",
-    slug: "hoa-khai-truong",
-    description: "Chúc mừng khai trương thành công",
-  },
-  {
-    _id: "4",
-    name: "Hoa tang lễ",
-    image: "https://images.unsplash.com/photo-1596720626382-3dc1a962a5c2?w=600",
-    slug: "hoa-tang-le",
-    description: "Gửi lời chia buồn đến gia đình",
-  },
-  {
-    _id: "5",
-    name: "Combo quà tặng",
-    image: "https://images.unsplash.com/photo-1520763185298-1b434c919102?w=600",
-    slug: "combo-qua-tang",
-    description: "Quà tặng ý nghĩa",
-  },
-  {
-    _id: "6",
-    name: "Hoa tình yêu",
-    image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600",
-    slug: "hoa-tinh-yeu",
-    description: "Biểu đạt tình yêu của bạn",
-  },
-  {
-    _id: "7",
-    name: "Hoa hồng",
-    image: "https://images.unsplash.com/photo-1559563362-c667ba5f5480?w=600",
-    slug: "hoa-hong",
-    description: "Hoa hồng đỏ, hồng, trắng...",
-  },
-  {
-    _id: "8",
-    name: "Hoa lan",
-    image: "https://images.unsplash.com/photo-1560729008-7b71c1f4e3e9?w=600",
-    slug: "hoa-lan",
-    description: "Hoa lan sang trọng và quý phái",
-  },
-];
 
 export default function Categories() {
   const navigate = useNavigate();
@@ -72,6 +14,7 @@ export default function Categories() {
     const fetchCategories = async () => {
       try {
         const response = await getCategoriesAPI();
+        console.log(response.data?.data);
         const categoriesData =
           response.data?.data || response.data || response || [];
         const allCategories = Array.isArray(categoriesData)
@@ -177,7 +120,7 @@ export default function Categories() {
           {categories.map((category, index) => (
             <motion.div key={category._id || index} variants={itemVariants}>
               <Link
-                to={`/shop?category=${category.slug || category._id}`}
+                to={`/products?category=${category._id}`}
                 className="group block relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
               >
                 {/* Image */}
@@ -227,7 +170,7 @@ export default function Categories() {
             </h3>
             <p className="text-gray-500 mb-6">Danh mục sẽ sớm được cập nhật</p>
             <button
-              onClick={() => navigate("/shop")}
+              onClick={() => navigate("/products")}
               className="px-6 py-2.5 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors font-medium"
             >
               Xem tất cả sản phẩm

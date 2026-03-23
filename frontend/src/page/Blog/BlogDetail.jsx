@@ -67,7 +67,7 @@ const MOCK_ARTICLE = {
 };
 
 export default function BlogDetail() {
-  const { slug } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [article, setArticle] = useState(null);
   const [relatedArticles, setRelatedArticles] = useState([]);
@@ -79,7 +79,7 @@ export default function BlogDetail() {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await getArticleByIdAPI(slug);
+        const response = await getArticleByIdAPI(id);
         const articleData = response?.data || response;
         if (articleData) {
           setArticle(articleData);
@@ -108,7 +108,7 @@ export default function BlogDetail() {
 
     fetchArticle();
     fetchRelatedArticles();
-  }, [slug]);
+  }, [id]);
 
   const formatDate = (dateString) => {
     if (!dateString) return "";
@@ -285,7 +285,7 @@ export default function BlogDetail() {
               {relatedArticles.map((related) => (
                 <Link
                   key={related._id}
-                  to={`/blog/${related.slug || related._id}`}
+                  to={`/blog/${related._id}`}
                   className="group"
                 >
                   <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">

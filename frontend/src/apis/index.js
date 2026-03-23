@@ -91,10 +91,26 @@ export const getProductByIdAPI = async (id) => {
   return response.data
 }
 
-export const getProductsAPI = async ({ page = 1, limit = 12 } = {}) => {
+export const getProductsAPI = async ({
+  page = 1,
+  limit = 12,
+  search,
+  category,
+  sort
+} = {}) => {
   const params = new URLSearchParams()
   params.append('page', page)
-  params.append('limit', limit)
+  // Backend đọc itemsPerPage (không phải limit)
+  params.append('itemsPerPage', limit)
+  if (search != null && String(search).trim()) {
+    params.append('search', String(search).trim())
+  }
+  if (category != null && String(category).trim()) {
+    params.append('category', String(category).trim())
+  }
+  if (sort != null && String(sort).trim()) {
+    params.append('sort', String(sort).trim())
+  }
   const response = await publicAxiosInstance.get(`${API_ROOT}/v1/products?${params.toString()}`)
   return response.data
 }

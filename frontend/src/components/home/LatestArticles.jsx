@@ -108,7 +108,7 @@ export default function LatestArticles({ className = '' }) {
           {displayArticles.map((article) => (
             <Link
               key={article._id}
-              to={`/blog/${article.slug || article._id}`}
+              to={`/blog/${article._id}`}
               className="group"
             >
               {/* Article Card */}

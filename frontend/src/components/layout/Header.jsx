@@ -73,6 +73,11 @@ export default function Header({ className = '' }) {
                 <SearchBar />
               </div>
 
+              {/* Mobile Search Icon */}
+              <div className="md:hidden relative">
+                <SearchBar mobileIconMode />
+              </div>
+
               {/* Wishlist - Desktop */}
               <button className="hidden lg:flex p-2.5 rounded-full hover:bg-gray-100 text-gray-600">
                 <Heart className="w-5 h-5" />
@@ -116,10 +121,6 @@ export default function Header({ className = '' }) {
             </div>
           </div>
 
-          {/* Mobile Search Bar */}
-          <div className="md:hidden pb-3">
-            <SearchBar />
-          </div>
         </div>
       </header>
 

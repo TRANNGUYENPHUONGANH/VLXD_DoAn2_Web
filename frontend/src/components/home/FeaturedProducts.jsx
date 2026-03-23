@@ -94,7 +94,7 @@ export default function FeaturedProducts({ className = '' }) {
             Sản phẩm nổi bật
           </h2>
           <Link
-            to="/shop"
+            to="/products"
             className="text-blue-500 hover:text-blue-600 text-sm font-medium flex items-center gap-1"
           >
             Xem tất cả

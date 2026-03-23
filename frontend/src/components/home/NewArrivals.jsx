@@ -103,7 +103,7 @@ export default function NewArrivals({ className = '' }) {
             Sản phẩm mới
           </h2>
           <Link
-            to="/shop?sort=newest"
+            to="/products?sort=newest"
             className="text-blue-500 hover:text-blue-600 text-sm font-medium flex items-center gap-1"
           >
             Xem tất cả

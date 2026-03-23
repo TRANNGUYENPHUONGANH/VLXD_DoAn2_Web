@@ -7,7 +7,7 @@ export default function PromotionBanner({ className = '' }) {
     <div className={cn('py-8', className)}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
-          to="/shop?promotion=true"
+          to="/products?promotion=true"
           className="relative block rounded-3xl overflow-hidden"
         >
           {/* Background */}

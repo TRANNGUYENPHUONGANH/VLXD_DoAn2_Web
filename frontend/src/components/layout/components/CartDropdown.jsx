@@ -78,7 +78,7 @@ export default function CartDropdown({ isOpen, onClose, className = '' }) {
             <ShoppingCart className="w-12 h-12 text-gray-300 mx-auto mb-3" />
             <p className="text-gray-500 text-sm">Giỏ hàng trống</p>
             <Link
-              to="/shop"
+              to="/products"
               onClick={onClose}
               className="text-blue-500 text-sm hover:underline mt-2 inline-block"
             >

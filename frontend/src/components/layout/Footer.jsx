@@ -3,10 +3,10 @@ import { Package, Mail, Phone, MapPin, Facebook, Instagram, Youtube, Send } from
 
 const footerLinks = {
   shop: [
-    { label: 'Cát xây dựng', path: '/shop?category=cat' },
-    { label: 'Đá dăm', path: '/shop?category=da' },
-    { label: 'Xi măng', path: '/shop?category=xi-mang' },
-    { label: 'Gạch các loại', path: '/shop?category=gach' },
+    { label: 'Cát xây dựng', path: '/products?category=cat' },
+    { label: 'Đá dăm', path: '/products?category=da' },
+    { label: 'Xi măng', path: '/products?category=xi-mang' },
+    { label: 'Gạch các loại', path: '/products?category=gach' },
   ],
   support: [
     { label: 'Câu hỏi thường gặp', path: '/faq' },

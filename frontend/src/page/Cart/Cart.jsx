@@ -179,7 +179,7 @@ export default function Cart() {
             <h2 className="text-2xl font-semibold text-gray-900 mb-2">Giỏ hàng trống</h2>
             <p className="text-gray-500 mb-8">Hãy thêm sản phẩm vào giỏ hàng của bạn</p>
             <Link
-              to="/shop"
+              to="/products"
               className="inline-flex items-center gap-2 px-8 py-3 bg-blue-500 text-white rounded-xl font-medium hover:bg-blue-600 transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
@@ -354,7 +354,7 @@ export default function Cart() {
 
             {/* Continue Shopping */}
             <Link
-              to="/shop"
+              to="/products"
               className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
@@ -412,7 +412,7 @@ export default function Cart() {
               </button>
 
               <Link
-                to="/shop"
+                to="/products"
                 className="w-full mt-3 py-3 border border-gray-200 hover:border-blue-500 text-gray-600 hover:text-blue-500 rounded-xl font-medium text-center block transition-colors"
               >
                 Tiếp tục mua sắm

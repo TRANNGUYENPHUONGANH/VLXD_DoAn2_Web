@@ -152,7 +152,7 @@ export default function Blog() {
       {featuredArticle && !isLoading && (
         <div className="max-w-7xl mx-auto px-4 py-8">
           <Link
-            to={`/blog/${featuredArticle.slug || featuredArticle._id}`}
+            to={`/blog/${featuredArticle._id}`}
             className="group block"
           >
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
@@ -224,7 +224,7 @@ export default function Blog() {
             {otherArticles.map((article) => (
               <motion.div key={article._id} variants={itemVariants}>
                 <Link
-                  to={`/blog/${article.slug || article._id}`}
+                  to={`/blog/${article._id}`}
                   className="group block h-full"
                 >
                   <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col">
@@ -292,7 +292,7 @@ export default function Blog() {
               và chọn cho mình một sản phẩm ưng ý
             </p>
             <button
-              onClick={() => navigate("/shop")}
+              onClick={() => navigate("/products")}
               className="px-8 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors font-medium inline-flex items-center gap-2"
             >
               Xem sản phẩm
