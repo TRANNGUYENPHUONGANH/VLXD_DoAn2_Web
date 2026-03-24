@@ -7,66 +7,58 @@ import { motion } from "framer-motion";
 const MOCK_ARTICLES = [
   {
     _id: "1",
-    name: "Cách chăm sóc hoa tươi lâu nhất",
+    name: "Cách chọn xi măng chất lượng cho công trình",
     summary:
-      "Những mẹo nhỏ giúp hoa tươi đẹp trong nhiều ngày. Tìm hiểu cách bảo quản hoa đúng cách...",
+      "Hướng dẫn lựa chọn xi măng phù hợp giúp công trình bền vững và tiết kiệm chi phí...",
     thumbnail_url:
-      "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600",
-    slug: "cach-cham-soc-hoa-tuoi-lau",
-    author: { name: "Ngọc Minh" },
+      "https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=600",
+    slug: "cach-chon-xi-mang",
+    author: { name: "Admin" },
     createdAt: "2024-03-10",
   },
   {
     _id: "2",
-    name: "Ý nghĩa các loài hoa trong ngày cưới",
+    name: "Phân biệt các loại gạch xây dựng phổ biến",
     summary:
-      "Tìm hiểu ý nghĩa của các loài hoa trong ngày trọng đại của bạn...",
+      "Tìm hiểu sự khác nhau giữa gạch đỏ, gạch block và gạch không nung...",
     thumbnail_url:
-      "https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=600",
-    slug: "y-nghia-cac-loai-hoa-trong-ngay-cuoi",
-    author: { name: "Minh Anh" },
+      "https://images.unsplash.com/photo-1581093458791-9c8c27d2f2a6?w=600",
+    slug: "phan-biet-gach",
+    author: { name: "Admin" },
     createdAt: "2024-03-08",
   },
   {
     _id: "3",
-    name: "Top 10 loại hoa được yêu thích nhất",
-    summary: "Khám phá những loại hoa được săn đón nhiều nhất trong năm qua...",
+    name: "Top vật liệu xây dựng được sử dụng nhiều nhất",
+    summary:
+      "Danh sách các vật liệu xây dựng phổ biến và được ưa chuộng hiện nay...",
     thumbnail_url:
-      "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=600",
-    slug: "top-10-loai-hoa-duoc-yeu-thich-nhat",
-    author: { name: "Huyền Trang" },
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600",
+    slug: "vat-lieu-xay-dung",
+    author: { name: "Admin" },
     createdAt: "2024-03-05",
   },
   {
     _id: "4",
-    name: "Hoa hồng - Biểu tượng của tình yêu",
-    summary: "Khám phá ý nghĩa và lịch sử của loài hoa hồng trong văn hóa...",
+    name: "Cách bảo quản vật liệu xây dựng đúng cách",
+    summary:
+      "Hướng dẫn bảo quản xi măng, sắt thép và các vật liệu khác tránh hư hỏng...",
     thumbnail_url:
-      "https://images.unsplash.com/photo-1559563362-c667ba5f5480?w=600",
-    slug: "hoa-hong-bieu-tuong-cua-tinh-yeu",
-    author: { name: "Lan Anh" },
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600",
+    slug: "bao-quan-vat-lieu",
+    author: { name: "Admin" },
     createdAt: "2024-03-01",
   },
   {
     _id: "5",
-    name: "Cách chọn hoa khai trương ý nghĩa",
-    summary: "Hướng dẫn chọn hoa khai trương mang lại may mắn và thành công...",
-    thumbnail_url:
-      "https://images.unsplash.com/photo-1566937169390-7be4c63b8a0e?w=600",
-    slug: "cach-chon-hoa-khai-truong-y-nghia",
-    author: { name: "Tuấn Anh" },
-    createdAt: "2024-02-25",
-  },
-  {
-    _id: "6",
-    name: "Xu hướng hoa tươi 2024",
+    name: "Kinh nghiệm chọn vật liệu xây nhà tiết kiệm",
     summary:
-      "Những xu hướng hoa tươi đang được ưa chuộng nhất trong năm 2024...",
+      "Những mẹo giúp bạn lựa chọn vật liệu phù hợp với chi phí hợp lý...",
     thumbnail_url:
-      "https://images.unsplash.com/photo-1518882605630-8eb582dd4e5d?w=600",
-    slug: "xu-huong-hoa-tuoi-2024",
-    author: { name: "Thanh Hà" },
-    createdAt: "2024-02-20",
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600",
+    slug: "chon-vat-lieu",
+    author: { name: "Admin" },
+    createdAt: "2024-02-25",
   },
 ];
 
@@ -138,7 +130,7 @@ export default function Blog() {
               <FileText className="w-7 h-7 text-white" />
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-white">
-              Tin tức & Blog
+              Tin tức & Bài viết
             </h1>
           </div>
           <p className="text-white/80 text-lg max-w-xl">
@@ -151,10 +143,7 @@ export default function Blog() {
       {/* Featured Article */}
       {featuredArticle && !isLoading && (
         <div className="max-w-7xl mx-auto px-4 py-8">
-          <Link
-            to={`/blog/${featuredArticle._id}`}
-            className="group block"
-          >
+          <Link to={`/blog/${featuredArticle._id}`} className="group block">
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
               <div className="grid md:grid-cols-2 gap-0">
                 <div className="aspect-[4/3] md:aspect-auto relative overflow-hidden">

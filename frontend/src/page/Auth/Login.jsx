@@ -1,53 +1,53 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { motion } from 'framer-motion'
-import { Eye, EyeOff, Loader2 } from 'lucide-react'
-import { loginUserAPI } from '~/redux/user/userSlice'
-import AuthLayout from '~/components/layout/AuthLayout'
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { motion } from "framer-motion";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { loginUserAPI } from "~/redux/user/userSlice";
+import AuthLayout from "~/components/layout/AuthLayout";
 
 export default function Login() {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  })
-  const [showPassword, setShowPassword] = useState(false)
-  const [rememberMe, setRememberMe] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState('')
+    email: "",
+    password: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-    if (error) setError('')
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (error) setError("");
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError('')
-    setIsLoading(true)
+    e.preventDefault();
+    setError("");
+    setIsLoading(true);
 
     try {
-      const result = await dispatch(loginUserAPI(formData)).unwrap()
+      const result = await dispatch(loginUserAPI(formData)).unwrap();
       if (result.success) {
         // Check if user is admin from the result
-        const userRole = result.data?.role
-        console.log(userRole)
-        if (userRole === 'admin') {
-          navigate('/admin')
+        const userRole = result.data?.role;
+        console.log(userRole);
+        if (userRole === "admin") {
+          navigate("/admin");
         } else {
-          navigate('/')
+          navigate("/");
         }
       }
     } catch (err) {
-      setError(err || 'Đăng nhập thất bại. Vui lòng thử lại.')
+      setError(err || "Đăng nhập thất bại. Vui lòng thử lại.");
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <AuthLayout>
@@ -57,7 +57,7 @@ export default function Login() {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="font-serif text-2xl font-semibold text-gray-800 mb-2 text-center"
       >
-        Chào mừng trở lại!
+        Xin chào bạn!
       </motion.h2>
       <motion.p
         initial={{ opacity: 0 }}
@@ -65,7 +65,7 @@ export default function Login() {
         transition={{ duration: 0.5, delay: 0.4 }}
         className="text-gray-500 mb-6 text-center"
       >
-        Đăng nhập để tiếp tục mua sắm
+        Đăng nhập để tiếp tục xem và mua các sản phẩm nhé!
       </motion.p>
 
       {error && (
@@ -81,7 +81,10 @@ export default function Login() {
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Email <span className="text-red-500">*</span>
           </label>
           <input
@@ -98,12 +101,15 @@ export default function Login() {
 
         {/* Password */}
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Mật khẩu <span className="text-red-500">*</span>
           </label>
           <div className="relative">
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               id="password"
               name="password"
               value={formData.password}
@@ -117,7 +123,11 @@ export default function Login() {
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
             >
-              {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+              {showPassword ? (
+                <EyeOff className="w-5 h-5" />
+              ) : (
+                <Eye className="w-5 h-5" />
+              )}
             </button>
           </div>
         </div>
@@ -153,7 +163,7 @@ export default function Login() {
               Đang đăng nhập...
             </>
           ) : (
-            'Đăng nhập'
+            "Đăng nhập"
           )}
         </button>
       </form>
@@ -165,11 +175,14 @@ export default function Login() {
         transition={{ duration: 0.5, delay: 0.5 }}
         className="mt-6 text-center text-gray-600"
       >
-        Chưa có tài khoản?{' '}
-        <Link to="/register" className="text-blue-600 hover:text-blue-700 font-medium transition-colors">
+        Chưa có tài khoản?{" "}
+        <Link
+          to="/register"
+          className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
+        >
           Đăng ký ngay
         </Link>
       </motion.p>
     </AuthLayout>
-  )
+  );
 }
